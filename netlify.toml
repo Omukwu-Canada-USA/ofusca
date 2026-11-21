@@ -61,9 +61,16 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
-# Hide developer notes that sit in the publish folder.
+# Hide developer notes and config files that sit in the publish folder.
+# Paths are case-sensitive, so both spellings are listed.
 [[redirects]]
   from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/readme.md"
   to = "/404.html"
   status = 404
   force = true
@@ -75,7 +82,19 @@
   force = true
 
 [[redirects]]
+  from = "/security.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/HUMAN_VERIFICATION.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/human_verification.md"
   to = "/404.html"
   status = 404
   force = true
@@ -87,13 +106,37 @@
   force = true
 
 [[redirects]]
+  from = "/ofusca_database_setup.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/LICENSE"
   to = "/404.html"
   status = 404
   force = true
 
 [[redirects]]
+  from = "/license"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/_headers"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.github/*"
   to = "/404.html"
   status = 404
   force = true
