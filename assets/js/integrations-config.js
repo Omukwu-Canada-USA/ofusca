@@ -8,6 +8,6 @@ window.OFUSCA_CONFIG = {
 
   // Supabase public config can go here later only after Row Level Security is enabled.
   // Never place the Supabase service role key in a public website file.
-  SUPABASE_URL: 'PASTE_SUPABASE_PROJECT_URL_HERE',
-  SUPABASE_ANON_PUBLIC_KEY: 'PASTE_SUPABASE_ANON_PUBLIC_KEY_HERE'
+  SUPABASE_URL: 'https://qoyulbjuhlofnttnwvai.supabase.co',
+  SUPABASE_ANON_PUBLIC_KEY: 'sb_publishable_U4663akNAAMAW8c5Ni-V4g_plEuxIpD'
 };

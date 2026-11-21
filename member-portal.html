@@ -1,1 +1,101 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>OFUSCA Member Portal Plan</title><meta name="description" content="Supabase-ready OFUSCA member portal plan with login, profile updates, dues records, donations, announcements and member-only resources."><link rel="stylesheet" href="assets/css/styles.css"></head><body><header class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpeg" alt="OFUSCA logo"><span>OFUSCA<small>Omukwu Family USA & Canada</small></span></a><button class="menu-btn" aria-label="Toggle menu">Menu</button><nav class="links" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="projects.html">Projects</a><a href="executives.html">Executives</a><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donate</a><a href="security.html">Security</a></nav></div></header><section class="page-hero"><div class="container"><div class="breadcrumbs">Home / Member Portal</div><h1>Supabase-Ready Member Portal</h1><p>This is the blueprint for a secure member-only area where OFUSCA members can login, manage profiles, view dues status, submit updates, and receive official announcements.</p><div class="hero-actions"><a class="btn gold" href="#portal-modules">View Portal Modules</a><a class="btn ghost" href="integrations.html">Database Setup</a></div></div></section><main><section class="section" id="portal-modules"><div class="container"><div class="section-head"><span class="kicker">Portal modules</span><h2>What members will be able to do after Supabase is connected</h2><p>This static page is a placeholder. The included schema and setup notes prepare the site for real authentication in the next development phase.</p></div><div class="portal-grid"><div class="portal-card"><h3>Login / Create Account</h3><p>Email-based Supabase Auth for members, executives and admins.</p></div><div class="portal-card"><h3>My Profile</h3><p>Update address, phone, spouse/family details, profession, business profile and birthday preferences.</p></div><div class="portal-card"><h3>Dues Status</h3><p>View annual dues, registration fee, levy, scholarship donation, welfare donation and project support history.</p></div><div class="portal-card"><h3>Member Spotlight</h3><p>Submit professional achievements, business highlights, promotions, graduations, appointments and media requests.</p></div><div class="portal-card"><h3>Announcements</h3><p>Member-only notices, meeting updates, convention details and official circulars.</p></div><div class="portal-card"><h3>Documents</h3><p>Secure access to approved constitution copies, minutes, forms, policies and reports.</p></div></div></div></section><section class="section compact"><div class="container split"><div class="panel"><span class="kicker">Do not expose secrets</span><h2>Public key vs private key</h2><p>The Supabase anon public key can be used in browser apps with Row Level Security. The Supabase service role key must never be placed in public website files, GitHub, Netlify environment exposed to frontend, or JavaScript.</p><ul class="list check-list"><li>Enable Row Level Security on all member tables.</li><li>Give members access only to their own profile.</li><li>Give executives/admins role-based access.</li><li>Store payment confirmation only, not card details.</li><li>Use Stripe/PayPal/Zelle/Interac for payments, not raw card collection.</li></ul></div><div class="panel"><span class="kicker">Coming soon</span><h2>Member login</h2><p>Member accounts are not open yet. OFUSCA will announce when the member portal is ready.</p></div></div></section><section class="section compact registration-cta"><div class="container"><div class="section-head"><span class="kicker">Next build phase</span><h2>Files already included for developers</h2></div><div class="cards"><div class="card"><h3><code>supabase-schema.sql</code></h3><p>Database tables for profiles, dues, donations, publicity consent, spotlights, announcements and roles.</p></div><div class="card"><h3><code>assets/js/supabase-placeholder.js</code></h3><p>Safe placeholder showing where public Supabase configuration will go later.</p></div><div class="card"><h3><code>OFUSCA_DATABASE_SETUP.md</code></h3><p>Step-by-step guidance for Google Sheets now and Supabase member portal later.</p></div></div></div></section></main><footer class="footer"><div class="container footer-grid"><div><h3>OFUSCA</h3><p>Omukwu Family USA & Canada Association — unity, culture, education, welfare and community advancement.</p></div><div><h4>Explore</h4><a href="about.html">About</a><a href="events.html">Events</a><a href="projects.html">Projects</a><a href="gallery.html">Gallery</a></div><div><h4>Members</h4><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donations</a></div><div><h4>Governance</h4><a href="constitution.html">Constitution</a><a href="executives.html">Executives</a><a href="security.html">Security</a></div></div><div class="container copyright">© <span data-year></span> OFUSCA. All rights reserved.</div></footer><script src="assets/js/integrations-config.js"></script><script src="assets/js/main.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>OFUSCA Member Portal</title><meta name="description" content="Sign in to the OFUSCA member portal to confirm dues and share photos and documents."><meta name="robots" content="noindex"><link rel="stylesheet" href="assets/css/styles.css"><style>
+.portal-msg{padding:.75rem 1rem;border-radius:10px;margin:.75rem 0;background:#eef4ff;color:#1d3a6e}
+.portal-msg.ok{background:#e8f6ee;color:#1f5d3a}.portal-msg.error{background:#fdecec;color:#8a1f1f}
+.dues-box{padding:1rem 1.2rem;border-radius:12px;font-weight:600;margin:.5rem 0 1rem}
+.dues-box.paid{background:#e8f6ee;color:#1f5d3a}.dues-box.pending{background:#fff6e0;color:#7a5600}.dues-box.unpaid{background:#f3f3f3;color:#444}
+.portal-table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:.5rem}
+.portal-table th,.portal-table td{text-align:left;padding:.55rem .5rem;border-bottom:1px solid #e4e4e4;vertical-align:top;overflow-wrap:anywhere}
+.table-scroll{overflow-x:auto}
+.pill{display:inline-block;padding:.15rem .6rem;border-radius:999px;font-size:.8rem;font-weight:700;text-transform:capitalize;background:#eee}
+.pill-verified,.pill-approved{background:#e8f6ee;color:#1f5d3a}.pill-pending{background:#fff6e0;color:#7a5600}.pill-rejected{background:#fdecec;color:#8a1f1f}
+.btn.small{padding:.35rem .8rem;font-size:.85rem;margin:.15rem .25rem .15rem 0}
+.portal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.form label{display:block;font-weight:600;margin:.6rem 0 .25rem}
+.text-link{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}
+.portal-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+</style></head><body><header class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpeg" alt="OFUSCA logo"><span>OFUSCA<small>Omukwu Family USA & Canada</small></span></a><button class="menu-btn" aria-label="Toggle menu">Menu</button><nav class="links" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="projects.html">Projects</a><a href="executives.html">Executives</a><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donate</a><a href="member-portal.html">Member Login</a><a href="security.html">Security</a></nav></div></header><section class="page-hero"><div class="container"><div class="breadcrumbs">Home / Member Portal</div><h1>Member Portal</h1><p>Sign in to see your dues status, send a payment confirmation, and share photos and documents once your dues are confirmed.</p></div></section><main>
+<section class="section"><div class="container">
+
+<div id="auth-view">
+  <div id="auth-msg" class="portal-msg" hidden></div>
+  <div class="portal-grid">
+    <form id="signin-form" class="panel form">
+      <span class="kicker">Members</span><h2>Sign in</h2>
+      <label for="signin-email">Email</label><input id="signin-email" type="email" autocomplete="email" required>
+      <label for="signin-password">Password</label><input id="signin-password" type="password" autocomplete="current-password" required>
+      <button class="btn primary" type="submit">Sign in</button>
+      <p class="form-note"><a href="#" id="forgot-link">Forgot your password?</a></p>
+    </form>
+    <form id="signup-form" class="panel form">
+      <span class="kicker">New here?</span><h2>Create a member account</h2>
+      <label for="signup-name">Full name</label><input id="signup-name" autocomplete="name" required maxlength="120">
+      <label for="signup-email">Email</label><input id="signup-email" type="email" autocomplete="email" required>
+      <label for="signup-password">Password (at least 8 characters)</label><input id="signup-password" type="password" autocomplete="new-password" minlength="8" required>
+      <button class="btn gold" type="submit">Create account</button>
+      <p class="form-note">You will get an email to confirm your address before you can sign in.</p>
+    </form>
+  </div>
+</div>
+
+<div id="recovery-view" hidden>
+  <form id="recovery-form" class="panel form">
+    <h2>Choose a new password</h2>
+    <label for="recovery-password">New password (at least 8 characters)</label>
+    <input id="recovery-password" type="password" autocomplete="new-password" minlength="8" required>
+    <button class="btn primary" type="submit">Save new password</button>
+    <div id="recovery-msg" class="portal-msg" hidden></div>
+  </form>
+</div>
+
+<div id="member-view" hidden>
+  <div class="panel portal-top">
+    <div><span class="kicker">Signed in</span><h2 id="member-name"></h2><p id="member-status"></p></div>
+    <button id="signout-btn" class="btn ghost" type="button">Sign out</button>
+  </div>
+
+  <div class="portal-grid" style="margin-top:1.5rem">
+    <div class="panel">
+      <span class="kicker">Dues</span><h2>Your dues status</h2>
+      <div id="dues-status" class="dues-box"></div>
+      <div class="table-scroll"><table id="payments-table" class="portal-table" hidden>
+        <thead><tr><th>Date</th><th>Payment</th><th>Amount</th><th>Reference</th><th>Status</th></tr></thead>
+        <tbody id="payments-body"></tbody></table></div>
+    </div>
+
+    <form id="payment-form" class="panel form">
+      <span class="kicker">After you pay</span><h2>Submit payment confirmation</h2>
+      <label for="pay-type">Payment for</label>
+      <select id="pay-type"><option>Family Annual Dues</option><option>Single Annual Dues</option><option>Registration Fee</option><option>Scholarship Donation</option><option>Project Donation</option><option>Welfare Donation</option><option>Convention / Event Payment</option><option>Other Levy</option></select>
+      <label for="dues-year">Dues year</label><input id="dues-year" type="number" min="2012" max="2100">
+      <label for="pay-amount">Amount paid</label><input id="pay-amount" type="number" min="0.01" step="0.01" required>
+      <label for="pay-currency">Currency</label><select id="pay-currency"><option>USD</option><option>CAD</option></select>
+      <label for="pay-method">How you paid</label><select id="pay-method"><option>Zelle</option><option>Interac e-Transfer</option><option>PayPal</option><option>Cash App</option><option>Bank transfer</option><option>Cash</option><option>Other</option></select>
+      <label for="pay-reference">Transaction reference</label><input id="pay-reference" maxlength="200" placeholder="Confirmation number or note from your bank">
+      <label for="pay-notes">Notes (optional)</label><textarea id="pay-notes" maxlength="1000"></textarea>
+      <button class="btn primary" type="submit">Send confirmation</button>
+      <div id="payment-msg" class="portal-msg" hidden></div>
+    </form>
+  </div>
+
+  <div class="panel" style="margin-top:1.5rem">
+    <span class="kicker">For paid members</span><h2>Upload photos and documents</h2>
+    <div id="upload-locked" class="dues-box unpaid">Uploads open once your dues for this year are confirmed by an officer.</div>
+    <form id="upload-form" class="form" hidden>
+      <label for="upload-kind">What are you uploading?</label>
+      <select id="upload-kind"><option value="profile_photo">Profile / spotlight photo</option><option value="event_photo">Event photo</option><option value="document">Document (PDF)</option></select>
+      <label for="upload-file">File (JPG, PNG, WEBP or PDF, up to 10 MB)</label>
+      <input id="upload-file" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" required>
+      <label for="upload-caption">Caption or description</label>
+      <input id="upload-caption" maxlength="500" placeholder="For example: Toronto convention 2025, women's wing">
+      <button class="btn gold" type="submit">Upload</button>
+    </form>
+    <div id="upload-msg" class="portal-msg" hidden></div>
+    <h3 style="margin-top:1.5rem">Your uploads</h3>
+    <p id="uploads-empty" class="form-note">No uploads yet.</p>
+    <div class="table-scroll"><table id="uploads-table" class="portal-table" hidden>
+      <thead><tr><th>Date</th><th>Type</th><th>File</th><th>Caption</th><th>Status</th><th></th></tr></thead>
+      <tbody id="uploads-body"></tbody></table></div>
+  </div>
+</div>
+
+</div></section></main><footer class="footer"><div class="container footer-grid"><div><h3>OFUSCA</h3><p>Omukwu Family USA & Canada Association — unity, culture, education, welfare and community advancement.</p></div><div><h4>Explore</h4><a href="about.html">About</a><a href="events.html">Events</a><a href="projects.html">Projects</a><a href="gallery.html">Gallery</a></div><div><h4>Members</h4><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donations</a><a href="member-portal.html">Member Login</a></div><div><h4>Governance</h4><a href="constitution.html">Constitution</a><a href="executives.html">Executives</a><a href="security.html">Security</a></div></div><div class="container copyright">© <span data-year></span> OFUSCA. All rights reserved.</div></footer><script src="assets/js/integrations-config.js"></script><script src="assets/js/main.js"></script><script src="assets/js/vendor/supabase-2.119.2.js"></script><script src="assets/js/supa-client.js"></script><script src="assets/js/portal.js"></script></body></html>
