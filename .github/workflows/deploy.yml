@@ -3,10 +3,16 @@ name: Deploy to Netlify
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 concurrency:
-  group: netlify-production
+  group: netlify-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -16,14 +22,18 @@ jobs:
       - name: Get the site files
         uses: actions/checkout@v4
 
-      - name: Publish to ofusca.org
+      - name: Publish to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: "."
           netlify-config-path: ./netlify.toml
-          production-deploy: true
-          deploy-message: "${{ github.event.head_commit.message }}"
-          enable-pull-request-comment: false
+          # Only main goes live on ofusca.org. Pull requests get a preview link.
+          production-deploy: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+          alias: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || '' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "${{ github.event.pull_request.title || github.event.head_commit.message }}"
+          enable-pull-request-comment: true
+          overwrites-pull-request-comment: true
           enable-commit-comment: false
           enable-github-deployment: false
         env:
