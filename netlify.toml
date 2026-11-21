@@ -61,6 +61,13 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Send the Netlify address to the real domain.
+[[redirects]]
+  from = "https://ofusca.netlify.app/*"
+  to = "https://ofusca.org/:splat"
+  status = 301
+  force = true
+
 # Hide developer notes and config files that sit in the publish folder.
 # Paths are case-sensitive, so both spellings are listed.
 [[redirects]]
