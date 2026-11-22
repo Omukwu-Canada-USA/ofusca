@@ -78,7 +78,7 @@
     busy(btn, false);
     if (res.error) { U.say($('auth-msg'), 'Could not create the account: ' + res.error.message, 'error'); return; }
     e.target.reset();
-    U.say($('auth-msg'), 'Account created. Check your email and click the confirmation link, then sign in here.', 'ok');
+    U.say($('auth-msg'), 'Account created. Check your email (including the spam folder) and click the confirmation link, then sign in here.', 'ok');
   });
 
   $('forgot-link').addEventListener('click', async function (e) {
