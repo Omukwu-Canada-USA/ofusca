@@ -130,7 +130,7 @@
     box.textContent = paid
       ? 'Your ' + year + ' dues are confirmed. Uploads are open to you.'
       : pending
-        ? 'Your payment confirmation is waiting for the Treasurer or Financial Secretary to check it. Uploads open once it is confirmed.'
+        ? 'Your payment confirmation is waiting for the Treasurer or Financial Secretary to check it. Please allow 24 to 48 hours. Uploads open once it is confirmed.'
         : 'No confirmed dues for ' + year + ' yet. Pay your dues, then submit the confirmation below.';
 
     var tbody = $('payments-body');
@@ -171,7 +171,7 @@
     if (res.error) { U.say($('payment-msg'), 'Could not save the confirmation: ' + res.error.message, 'error'); return; }
     e.target.reset();
     $('dues-year').value = year;
-    U.say($('payment-msg'), 'Thank you. An officer will check it and confirm.', 'ok');
+    U.say($('payment-msg'), 'Your payment confirmation has been received. Please allow 24 to 48 hours for an officer to check and confirm it.', 'ok');
     loadDues();
   });
 
