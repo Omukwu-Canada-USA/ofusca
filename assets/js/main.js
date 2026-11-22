@@ -69,11 +69,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
-  const badge=document.createElement('div');
-  badge.className='security-badge';
-  badge.textContent='OFUSCA Protected Site';
-  badge.setAttribute('aria-label','OFUSCA protected site notice');
-  document.body.appendChild(badge);
 });
 
 // Optional Google Sheets submission bridge.
