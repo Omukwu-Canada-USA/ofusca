@@ -57,6 +57,11 @@
     X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
+  for = "/scholarship-review.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
   for = "/integrations.html"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"

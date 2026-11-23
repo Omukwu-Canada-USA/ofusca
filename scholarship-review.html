@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Scholarship Review | OFUSCA</title><meta name="description" content="OFUSCA scholarship review page."><meta name="robots" content="noindex"><link rel="stylesheet" href="assets/css/styles.css"><style>
+.portal-msg{padding:.75rem 1rem;border-radius:10px;margin:.75rem 0;background:#eef4ff;color:#1d3a6e}
+.portal-msg.ok{background:#e8f6ee;color:#1f5d3a}.portal-msg.error{background:#fdecec;color:#8a1f1f}
+.dues-box{padding:1rem 1.2rem;border-radius:12px;font-weight:600;margin:.5rem 0 1rem}
+.dues-box.paid{background:#e8f6ee;color:#1f5d3a}.dues-box.pending{background:#fff6e0;color:#7a5600}.dues-box.unpaid{background:#f3f3f3;color:#444}
+.portal-table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:.5rem}
+.portal-table th,.portal-table td{text-align:left;padding:.55rem .5rem;border-bottom:1px solid #e4e4e4;vertical-align:top;overflow-wrap:anywhere}
+.table-scroll{overflow-x:auto}
+.pill{display:inline-block;white-space:nowrap;padding:.15rem .6rem;border-radius:999px;font-size:.8rem;font-weight:700;text-transform:capitalize;background:#eee}
+.pill-verified,.pill-approved{background:#e8f6ee;color:#1f5d3a}.pill-pending{background:#fff6e0;color:#7a5600}.pill-rejected{background:#fdecec;color:#8a1f1f}
+.btn.small{padding:.35rem .8rem;font-size:.85rem;margin:.15rem .25rem .15rem 0}
+.portal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.form label{display:block;font-weight:600;margin:.6rem 0 .25rem}
+.text-link{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}
+.portal-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+</style><style>
+.radio-row{display:flex;gap:1.5rem;flex-wrap:wrap;margin:.4rem 0 1rem}.radio-row label{font-weight:600;display:flex;gap:.5rem;align-items:center;margin:0}.radio-row input,#application-form .consent input{width:auto;min-width:0;margin:0;flex:0 0 auto}#application-form .consent{display:flex;gap:.6rem;align-items:flex-start;text-align:left}
+.grid-table input{width:100%;min-width:90px}
+.doc-ok{color:#1f5d3a;font-weight:600}.doc-missing{color:#8a1f1f;font-weight:600}
+.app-card summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;list-style:none}
+.app-card{margin-bottom:1rem}.app-fields{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:.35rem 1rem;margin:1rem 0}
+.app-fields dt{font-weight:700}.app-fields dd{margin:0;overflow-wrap:anywhere}
+.review-box{margin-top:1rem;padding-top:1rem;border-top:1px solid #e4e4e4;display:grid;gap:.6rem}
+.review-box textarea{min-height:80px}
+@media (max-width:640px){.app-fields{grid-template-columns:1fr}}
+</style></head><body data-award-year="2026"><header class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpeg" alt="OFUSCA logo"><span>OFUSCA<small>Omukwu Family USA & Canada</small></span></a><button class="menu-btn" aria-label="Toggle menu">Menu</button><nav class="links" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="projects.html">Projects</a><a href="scholarship.html">Scholarship</a><a href="executives.html">Executives</a><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donate</a><a href="member-portal.html">Member Login</a><a href="security.html">Security</a></nav></div></header><section class="page-hero"><div class="container"><div class="breadcrumbs">Home / Officers / Scholarship review</div><h1>Scholarship applications</h1><p>Review 2026-27 applications, open documents, and record the committee's decisions.</p></div></section><main>
+<section class="section"><div class="container">
+<div id="review-msg" class="portal-msg" hidden></div>
+<div id="review-signin" class="panel" hidden><h2>Please sign in first</h2><p>Sign in on the <a href="member-portal.html">Member Portal</a> with your officer or reviewer account, then come back to this page.</p></div>
+<div id="review-denied" class="panel" hidden><h2>Scholarship committee only</h2><p>This page is for OFUSCA officers and scholarship reviewers. Ask the site administrator for reviewer access if you need it.</p></div>
+<div id="review-main" hidden>
+  <div class="panel portal-top">
+    <div><span class="kicker">Reviewer</span><h2 id="review-user"></h2><p id="review-counts"></p></div>
+    <div><button id="review-refresh" class="btn ghost small" type="button">Refresh</button><button id="export-csv" class="btn ghost small" type="button">Download CSV</button><button id="review-signout" class="btn ghost small" type="button">Sign out</button></div>
+  </div>
+  <div class="panel form" style="margin:1rem 0"><label for="status-filter">Show</label>
+    <select id="status-filter"><option value="">All applications</option><option value="submitted">Submitted</option><option value="under_review">Under review</option><option value="shortlisted">Shortlisted</option><option value="awarded">Awarded</option><option value="not_selected">Not selected</option></select>
+    <p class="form-note">Click an applicant to see the full application and documents. Documents open through a private link that expires after two minutes.</p></div>
+  <p id="review-empty" class="form-note">No applications yet.</p>
+  <div id="review-list"></div>
+</div>
+</div></section></main><footer class="footer"><div class="container footer-grid"><div><h3>OFUSCA</h3><p>Omukwu Family USA & Canada Association — unity, culture, education, welfare and community advancement.</p></div><div><h4>Explore</h4><a href="about.html">About</a><a href="events.html">Events</a><a href="projects.html">Projects</a><a href="gallery.html">Gallery</a><a href="scholarship.html">Scholarship</a></div><div><h4>Members</h4><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donations</a><a href="member-portal.html">Member Login</a></div><div><h4>Governance</h4><a href="constitution.html">Constitution</a><a href="executives.html">Executives</a><a href="security.html">Security</a></div></div><div class="container copyright">© <span data-year></span> OFUSCA. All rights reserved.</div></footer><script src="assets/js/integrations-config.js"></script><script src="assets/js/main.js"></script><script src="assets/js/vendor/supabase-2.119.2.js"></script><script src="assets/js/supa-client.js"></script><script src="assets/js/review.js"></script></body></html>

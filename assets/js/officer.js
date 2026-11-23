@@ -134,6 +134,7 @@
   async function loadMembers() {
     var res = await sb.from('profiles')
       .select('full_name,email,branch,membership_status,created_at')
+      .eq('account_type', 'member')
       .order('created_at', { ascending: false })
       .limit(500);
     var rows = res.data || [];

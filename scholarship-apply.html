@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Apply Online | OFUSCA Scholarship</title><meta name="description" content="Apply online for the OFUSCA 2026-27 scholarship."><meta name="robots" content="noindex"><link rel="stylesheet" href="assets/css/styles.css"><style>
+.portal-msg{padding:.75rem 1rem;border-radius:10px;margin:.75rem 0;background:#eef4ff;color:#1d3a6e}
+.portal-msg.ok{background:#e8f6ee;color:#1f5d3a}.portal-msg.error{background:#fdecec;color:#8a1f1f}
+.dues-box{padding:1rem 1.2rem;border-radius:12px;font-weight:600;margin:.5rem 0 1rem}
+.dues-box.paid{background:#e8f6ee;color:#1f5d3a}.dues-box.pending{background:#fff6e0;color:#7a5600}.dues-box.unpaid{background:#f3f3f3;color:#444}
+.portal-table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:.5rem}
+.portal-table th,.portal-table td{text-align:left;padding:.55rem .5rem;border-bottom:1px solid #e4e4e4;vertical-align:top;overflow-wrap:anywhere}
+.table-scroll{overflow-x:auto}
+.pill{display:inline-block;white-space:nowrap;padding:.15rem .6rem;border-radius:999px;font-size:.8rem;font-weight:700;text-transform:capitalize;background:#eee}
+.pill-verified,.pill-approved{background:#e8f6ee;color:#1f5d3a}.pill-pending{background:#fff6e0;color:#7a5600}.pill-rejected{background:#fdecec;color:#8a1f1f}
+.btn.small{padding:.35rem .8rem;font-size:.85rem;margin:.15rem .25rem .15rem 0}
+.portal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.form label{display:block;font-weight:600;margin:.6rem 0 .25rem}
+.text-link{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit}
+.portal-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+</style><style>
+.radio-row{display:flex;gap:1.5rem;flex-wrap:wrap;margin:.4rem 0 1rem}.radio-row label{font-weight:600;display:flex;gap:.5rem;align-items:center;margin:0}.radio-row input,#application-form .consent input{width:auto;min-width:0;margin:0;flex:0 0 auto}#application-form .consent{display:flex;gap:.6rem;align-items:flex-start;text-align:left}
+.grid-table input{width:100%;min-width:90px}
+.doc-ok{color:#1f5d3a;font-weight:600}.doc-missing{color:#8a1f1f;font-weight:600}
+.app-card summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;list-style:none}
+.app-card{margin-bottom:1rem}.app-fields{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:.35rem 1rem;margin:1rem 0}
+.app-fields dt{font-weight:700}.app-fields dd{margin:0;overflow-wrap:anywhere}
+.review-box{margin-top:1rem;padding-top:1rem;border-top:1px solid #e4e4e4;display:grid;gap:.6rem}
+.review-box textarea{min-height:80px}
+@media (max-width:640px){.app-fields{grid-template-columns:1fr}}
+</style></head><body data-award-year="2026"><header class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.jpeg" alt="OFUSCA logo"><span>OFUSCA<small>Omukwu Family USA & Canada</small></span></a><button class="menu-btn" aria-label="Toggle menu">Menu</button><nav class="links" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="projects.html">Projects</a><a href="scholarship.html">Scholarship</a><a href="executives.html">Executives</a><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donate</a><a href="member-portal.html">Member Login</a><a href="security.html">Security</a></nav></div></header><section class="page-hero"><div class="container"><div class="breadcrumbs">Home / Scholarship / Apply online</div><h1>Apply online: 2026 Scholarship</h1><p>Complete the same application as the PDF form, upload your documents, and track your status. Deadline: 1 December 2026.</p></div></section><main>
+<section class="section"><div class="container">
+<div id="round-status" class="dues-box"></div>
+<div id="apply-msg" class="portal-msg" hidden></div>
+
+<div id="apply-auth">
+  <p class="form-note">To apply online, create a free applicant account first. It lets you save your application, upload documents, come back to edit before the deadline, and see your status. Prefer paper? <a href="scholarship.html">Download the PDF form instead</a>.</p>
+  <div class="portal-grid">
+    <form id="apply-signin" class="panel form">
+      <span class="kicker">Already have an account</span><h2>Sign in</h2>
+      <label for="ap-signin-email">Email</label><input id="ap-signin-email" type="email" autocomplete="email" required>
+      <label for="ap-signin-password">Password</label><input id="ap-signin-password" type="password" autocomplete="current-password" required>
+      <button class="btn primary" type="submit">Sign in</button>
+      <p class="form-note"><a href="#" id="ap-forgot">Forgot your password?</a></p>
+    </form>
+    <form id="apply-signup" class="panel form">
+      <span class="kicker">First time</span><h2>Create an applicant account</h2>
+      <label for="ap-signup-name">Full name</label><input id="ap-signup-name" autocomplete="name" maxlength="120" required>
+      <label for="ap-signup-email">Email</label><input id="ap-signup-email" type="email" autocomplete="email" required>
+      <label for="ap-signup-password">Password (at least 8 characters)</label><input id="ap-signup-password" type="password" autocomplete="new-password" minlength="8" required>
+      <button class="btn gold" type="submit">Create account</button>
+      <p class="form-note">We will email you a confirmation link from OFUSCA (info@ofusca.org). If it is not in your inbox, check your spam or junk folder.</p>
+    </form>
+  </div>
+</div>
+
+<div id="apply-recovery" hidden>
+  <form id="apply-recovery-form" class="panel form"><h2>Choose a new password</h2>
+    <label for="ap-recovery-password">New password</label><input id="ap-recovery-password" type="password" minlength="8" autocomplete="new-password" required>
+    <button class="btn primary" type="submit">Save new password</button>
+    <div id="apply-recovery-msg" class="portal-msg" hidden></div></form>
+</div>
+
+<div id="apply-main" hidden>
+  <div class="panel portal-top">
+    <div><span class="kicker">Signed in</span><h2 id="ap-user"></h2></div>
+    <button id="ap-signout" class="btn ghost" type="button">Sign out</button>
+  </div>
+  <div id="app-status" class="dues-box" style="margin-top:1rem"></div>
+
+  <form id="application-form" class="panel form" style="margin-top:1rem" novalidate>
+    <span class="kicker">2026-27 Scholarship Application Form</span>
+    <h2>Section 1: Personal information (all applicants)</h2>
+    <div class="form-grid">
+      <div><label for="f-surname">Surname *</label><input id="f-surname" maxlength="80" required></div>
+      <div><label for="f-given">Given names *</label><input id="f-given" maxlength="120" required></div>
+      <div><label for="f-phone">Mobile phone number *</label><input id="f-phone" type="tel" maxlength="30" required placeholder="+234..."></div>
+      <div><label for="f-email">Email address *</label><input id="f-email" type="email" maxlength="200" required></div>
+      <div><label for="f-kindred">Name of kindred in Omukwu *</label><input id="f-kindred" maxlength="120" required></div>
+    </div>
+
+    <h2 style="margin-top:1.5rem">Your studies</h2>
+    <p class="form-note">Are you an incoming student (freshman) or a returning student? *</p>
+    <div class="radio-row">
+      <label><input type="radio" name="applicant_type" value="incoming"> Incoming student (freshman)</label>
+      <label><input type="radio" name="applicant_type" value="returning"> Returning student</label>
+    </div>
+    <div class="form-grid">
+      <div><label for="f-institution">Name of tertiary institution (2026-27) *</label><input id="f-institution" maxlength="200" required></div>
+      <div><label for="f-course">Course of study *</label><input id="f-course" maxlength="150" required></div>
+      <div><label for="f-mode">Mode of study *</label><select id="f-mode"><option>Full-time</option><option>Part-time</option></select></div>
+    </div>
+
+    <div id="incoming-block" hidden>
+      <h2 style="margin-top:1.5rem">Section 2: Incoming students only</h2>
+      <h3>Secondary school attended</h3>
+      <div class="table-scroll"><table class="portal-table grid-table"><thead><tr><th>Name of secondary school</th><th>Year started</th><th>Year completed</th><th>Certificate obtained</th></tr></thead>
+      <tbody id="schools-body"><tr><td><input data-f="school" maxlength="120" aria-label="School name"></td><td><input data-f="year_started" maxlength="4" inputmode="numeric" aria-label="Year started"></td><td><input data-f="year_completed" maxlength="4" inputmode="numeric" aria-label="Year completed"></td><td><input data-f="certificate" maxlength="60" aria-label="Certificate obtained" placeholder="e.g. WAEC SSCE"></td></tr><tr><td><input data-f="school" maxlength="120" aria-label="School name"></td><td><input data-f="year_started" maxlength="4" inputmode="numeric" aria-label="Year started"></td><td><input data-f="year_completed" maxlength="4" inputmode="numeric" aria-label="Year completed"></td><td><input data-f="certificate" maxlength="60" aria-label="Certificate obtained" placeholder="e.g. WAEC SSCE"></td></tr></tbody></table></div>
+      <h3 style="margin-top:1rem">Best 5 subjects passed in WAEC or NECO</h3>
+      <div class="table-scroll"><table class="portal-table grid-table"><thead><tr><th>Subject</th><th>Grade</th><th>Year taken</th></tr></thead>
+      <tbody id="subjects-body"><tr><td><input data-f="subject" maxlength="60" aria-label="Subject 1"></td><td><input data-f="grade" maxlength="10" aria-label="Grade" placeholder="e.g. B2"></td><td><input data-f="year" maxlength="4" inputmode="numeric" aria-label="Year taken"></td></tr><tr><td><input data-f="subject" maxlength="60" aria-label="Subject 2"></td><td><input data-f="grade" maxlength="10" aria-label="Grade" placeholder="e.g. B2"></td><td><input data-f="year" maxlength="4" inputmode="numeric" aria-label="Year taken"></td></tr><tr><td><input data-f="subject" maxlength="60" aria-label="Subject 3"></td><td><input data-f="grade" maxlength="10" aria-label="Grade" placeholder="e.g. B2"></td><td><input data-f="year" maxlength="4" inputmode="numeric" aria-label="Year taken"></td></tr><tr><td><input data-f="subject" maxlength="60" aria-label="Subject 4"></td><td><input data-f="grade" maxlength="10" aria-label="Grade" placeholder="e.g. B2"></td><td><input data-f="year" maxlength="4" inputmode="numeric" aria-label="Year taken"></td></tr><tr><td><input data-f="subject" maxlength="60" aria-label="Subject 5"></td><td><input data-f="grade" maxlength="10" aria-label="Grade" placeholder="e.g. B2"></td><td><input data-f="year" maxlength="4" inputmode="numeric" aria-label="Year taken"></td></tr></tbody></table></div>
+      <p class="form-note">After you submit, upload a copy of your certificate or statement of results and your course registration form.</p>
+    </div>
+
+    <div id="returning-block" hidden>
+      <h2 style="margin-top:1.5rem">Section 3: Returning students only</h2>
+      <div class="form-grid">
+        <div><label for="f-year-started">Year started *</label><input id="f-year-started" inputmode="numeric" maxlength="4" placeholder="e.g. 2024"></div>
+        <div><label for="f-year-of-study">Year of study *</label><input id="f-year-of-study" maxlength="40" placeholder="e.g. 300 level"></div>
+        <div><label for="f-gpa">2025/26 GPA *</label><input id="f-gpa" maxlength="20" placeholder="e.g. 4.21 / 5.00"></div>
+      </div>
+      <p class="form-note">After you submit, upload the Enrolment Verification form (page 2 of the <a href="assets/docs/ofusca-scholarship-application-2026.pdf" download>application PDF</a>), completed by you and signed and stamped by your Head of Department.</p>
+    </div>
+
+    <h2 style="margin-top:1.5rem">Declaration</h2>
+    <label class="consent"><input type="checkbox" id="f-declaration"> I confirm that I am a native of Omukwu and that the information in this application is true and complete. *</label>
+    <label for="f-signature">Type your full name as your signature *</label><input id="f-signature" maxlength="200" required>
+    <button id="submit-btn" class="btn primary" type="submit" style="margin-top:1rem">Submit application</button>
+    <div id="form-msg" class="portal-msg" hidden></div>
+  </form>
+
+  <div id="docs-panel" class="panel" style="margin-top:1.5rem" hidden>
+    <span class="kicker">Attachments</span><h2>Upload your documents</h2>
+    <ul id="doc-checklist" class="list"></ul>
+    <form id="doc-form" class="form">
+      <label for="doc-type">Document</label>
+      <select id="doc-type"><option value="results">WAEC/NECO certificate or statement of results</option><option value="course_registration">Course registration form</option><option value="enrolment_verification">Enrolment Verification form (signed and stamped by HOD)</option><option value="other">Other supporting document</option></select>
+      <label for="doc-file">File (PDF, JPG, PNG or WEBP, up to 10 MB). A clear phone photo is fine.</label>
+      <input id="doc-file" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" required>
+      <button class="btn gold" type="submit">Upload document</button>
+    </form>
+    <div id="doc-msg" class="portal-msg" hidden></div>
+    <div class="table-scroll"><table id="docs-table" class="portal-table" hidden><thead><tr><th>Document</th><th>File</th><th>Uploaded</th><th></th></tr></thead><tbody id="docs-body"></tbody></table></div>
+  </div>
+  <p class="form-note" style="margin-top:1rem">Questions? Email <a href="mailto:ofusca.scholar@gmail.com">ofusca.scholar@gmail.com</a>.</p>
+</div>
+</div></section></main><footer class="footer"><div class="container footer-grid"><div><h3>OFUSCA</h3><p>Omukwu Family USA & Canada Association — unity, culture, education, welfare and community advancement.</p></div><div><h4>Explore</h4><a href="about.html">About</a><a href="events.html">Events</a><a href="projects.html">Projects</a><a href="gallery.html">Gallery</a><a href="scholarship.html">Scholarship</a></div><div><h4>Members</h4><a href="membership.html">Membership</a><a href="register.html">Register</a><a href="dues-donations.html">Dues & Donations</a><a href="member-portal.html">Member Login</a></div><div><h4>Governance</h4><a href="constitution.html">Constitution</a><a href="executives.html">Executives</a><a href="security.html">Security</a></div></div><div class="container copyright">© <span data-year></span> OFUSCA. All rights reserved.</div></footer><script src="assets/js/integrations-config.js"></script><script src="assets/js/main.js"></script><script src="assets/js/vendor/supabase-2.119.2.js"></script><script src="assets/js/supa-client.js"></script><script src="assets/js/apply.js"></script></body></html>
